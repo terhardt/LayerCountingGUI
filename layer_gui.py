@@ -108,7 +108,6 @@ class LayerPlot(object):
             on_cursor = self._find_closest_cursor(event)
             if on_cursor:
                 self._remove_cursor(on_cursor)
-                self._update_plot()
 
     def _on_release(self, event):
         in_axis = event.inaxes in self._axes
@@ -140,6 +139,6 @@ if __name__ == '__main__':
     data = pd.DataFrame(data=np.cumsum(np.random.randn(200, 2), axis=0),
                         index=np.linspace(0, 20, 200))
     plot = LayerPlot(data, cursors=None)
-    cursors = plot.get_cursors()
+    cursors = pd.Series(plot.get_cursors())
+    cursors.to_csv('cursours.csv')
     plt.close()
-    print(cursors)
