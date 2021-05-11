@@ -17,3 +17,8 @@ later use.
 
 The GUI can also be initialized using allready existing boundaries by passing
 them to the initiator.
+
+## Known issues
+
+If a layer is deleted it will only be removed the next time the working cursor
+is moved
